@@ -41,7 +41,7 @@ function App() {
   
   return (
     <div className="App" ref={divRef}>
-      <h1>mido subs</h1>
+        <h1 className="header">Subscribers' list</h1>      
       <List subs={subs}/>
       <Form onNewSub={handleNewSub} />
     </div>

@@ -4,7 +4,6 @@ interface Props {
     subs: Array<Sub>
 }
 
-
 const List= ({subs}: Props) => {
 
     const renderList = (): JSX.Element[] => {
