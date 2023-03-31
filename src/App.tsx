@@ -12,19 +12,7 @@ interface AppState{
 
 }
 
-const INITIAL_STATE = [
-  {
-    nick: "dapelu",
-    subMonths: 3,
-    avatar: "https://i.pravatar.cc/150?u=dapelu",
-    description: "Dapelu hace de moderador a veces"
-  },
-  {
-    nick: "sergio_serrano",
-    subMonths: 7,
-    avatar: "https://i.pravatar.cc/150?u=sergio_serrano"
-  }
-]
+
 
 function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([])
@@ -32,17 +20,24 @@ function App() {
   const divRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setSubs(INITIAL_STATE)
+    fetch("http:localhost:3001/subs")
+    .then(res => res.json())
+    .then(subs =>{
+      console.log(subs)
+      setSubs(subs)
+    })
   }, [])
 
   const handleNewSub = (newSub: Sub):void =>{
     setSubs(subs => [...subs, newSub])
+    setNewSubsNumber(n => n + 1)
   }
   
   return (
     <div className="App" ref={divRef}>
       <h1>mido subs</h1>
       <List subs={subs}/>
+      New subs: {newSubsNumber}
       <Form onNewSub={handleNewSub} />
     </div>
   );
