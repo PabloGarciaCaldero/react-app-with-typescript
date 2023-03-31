@@ -19,7 +19,8 @@ const INITIAL_STATE = {
     nick:"",
      subMonths: 0,
      avatar:"",
-    description:""
+    description:"",
+    money:0,
 }
 
 const formReducer = (state: FromState["inputValues"], action: FormReducerAction) => {

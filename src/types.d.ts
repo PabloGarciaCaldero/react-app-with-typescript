@@ -3,4 +3,5 @@ export interface Sub{
     avatar: string
     subMonths: number
     description?: string
+    money: number
   }
