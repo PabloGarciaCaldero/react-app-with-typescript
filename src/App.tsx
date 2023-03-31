@@ -4,6 +4,8 @@ import './App.css';
 import List from './components/List';
 import Form from './components/Form';
 import { Sub } from './types';
+import Exercici from './components/Exercici';
+
 
 
 interface AppState{
@@ -39,7 +41,12 @@ function App() {
       <List subs={subs}/>
       New subs: {newSubsNumber}
       <Form onNewSub={handleNewSub} />
+      {subs.map((sub) => (
+        <Exercici key={sub.nick} sub={sub} />
+      ))}
     </div>
+    
+    
   );
 }
 
